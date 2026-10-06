@@ -1,0 +1,173 @@
+
+/* ---------- 1. Basics ---------- */
+body {
+  font-family: -apple-system, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+  background: #fff;
+  color: #1d1d1f;
+}
+.product{
+  overflow: hidden;                 /* nothing spills outside the box */
+  background-repeat: no-repeat;     /* used by the background-image tiles */
+  background-position: center bottom;
+}
+/* Light and dark colors */
+.product-light { background-color: #fafafa; color: #1d1d1f; }
+.product-dark  { background-color: #000;    color: #f5f5f7; }
+
+/* Heights (mobile first). Text sits on top, image fills the bottom */
+.product-full { min-height: 30rem; }   /* big full-width tiles */
+.product-half { min-height: 30rem; }   /* small tiles in the grid */
+
+
+/* ---------- 3. Text styles ---------- */
+.product-model {                    
+  font-size: 0.7rem;
+  color: #6e6e73;
+  margin-bottom: 0;
+}
+
+.product-title{                       
+  font-size: 2.25rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.25rem;
+}
+.product-title-sm { font-size: 1.75rem; }   /* titles inside small products */
+
+.product-brand {                        /* WATCH / Card is here. / tv+ */
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 0;
+}
+.product-series {                       /* SERIES 5 */
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: #e0245e;
+  letter-spacing: 0.12em;
+  margin-bottom: 0.5rem;
+}
+
+.product-text {                         /* tagline */
+  font-size: 1.1rem;
+  margin-bottom: 0.4rem;
+}
+.product-price {                        /* "From $24.95/mo..." */
+  font-size: 0.8rem;
+  color: #6e6e73;
+  margin-bottom: 0.4rem;
+}
+.product-dark .product-price { color: #a1a1a6; }
+
+
+/* ---------- 4. Links ("Learn more >  Buy >") ---------- */
+.product-links { margin-bottom: 1.5rem; }
+
+.product-links a {
+  color: #0066cc;
+  text-decoration: none;
+  font-size: 1rem;
+  margin: 0 0.6rem;
+}
+.product-links a::after { content: " \203A"; }     /* the > arrow */
+.product-links a:hover  { text-decoration: underline; }
+.product-dark .product-links a { color: #2997ff; }    /* lighter blue on black */
+
+.product-links a:focus-visible {                   /* keyboard users */
+  outline: 2px solid #0071e3;
+  outline-offset: 3px;
+}
+
+/* "Watch the trailer" sits at the bottom of the TV+ tile */
+.product-links-bottom {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0.5rem;
+  margin-bottom: 0;
+  color: rgb(112, 46, 112);
+}
+.product-links-bottom a::after{
+  font-family: "FontAwesome";
+  content:"\f144";
+  font-weight: 900;
+}
+.product-tv { position: relative; }
+
+/* ---------- 5. MacBook product (normal <img>, not background) ---------- */
+.product-img-type { padding-bottom: 2rem; }
+
+.macbook-img {
+  width: 90%;
+  max-width: 40rem;
+}
+.macbook-img-sm { max-width: 28rem; }           /* the smaller one in the grid */
+
+
+/* =========================================================
+   6. BACKGROUND IMAGES  (one class per tile)
+   Change the file name here if your image is named differently.
+   background-size:
+     cover   = fills the whole box (may crop the edges)
+     contain = shows the whole image (may leave empty space)
+   ========================================================= */
+
+/* iPhone 11 Pro  ->  images/iphone-11-pro.jpg */
+.product-iphone-pro {
+  background-image: url("./images/home/iphone11-pro-bg.jpg");
+  background-size: cover;
+}
+
+/* iPhone 11  ->  images/iphone-11.jpg */
+.product-iphone {
+  background-image: url("./images/home/iphone11-bg.jpg");
+  background-size: cover;
+}
+
+/* Apple Watch  ->  images/apple-watch.jpg */
+.product-watch {
+  background-image: url("../images/home/watch-series-5.jpg");
+  background-size: cover;
+}
+
+/* Apple Card  ->  images/apple-card.jpg */
+.product-card {
+  background-image: url("./images/home/apple-card.jpg");
+  background-size: cover;
+}
+
+/* Apple TV+ Servant  ->  images/apple-tv-servant.jpg */
+.product-tv {
+  background-image: url("../images/home/apple-tv-background.jpg");
+  background-size: cover;
+}
+/* AirPods Pro  ->  images/airpods-pro.jpg */
+.product-airpods {
+  background-image: url("./images/home/air-pods.jpg");
+  background-size: auto 60%;
+  background-position:center bottom;
+  min-height: 35rem;
+}
+.product-ipd
+/* =========================================================
+   7. RESPONSIVE (bigger screens)
+   Bootstrap already handles the 1-column -> 2-column grid.
+   These only make text and heights bigger.
+   ========================================================= */
+
+/* Tablet: 768px and up */
+@media (min-width: 768px) {
+  .product-title    { font-size: 2.75rem; }
+  .product-title-sm { font-size: 2rem; }
+  .product-text     { font-size: 1.25rem; }
+  .product-full     { min-height: 34rem; }
+  .product-half     { min-height: 32rem; }
+}
+
+/* Desktop: 992px and up */
+@media (min-width: 992px) {
+  .product-title    { font-size: 3.25rem; }
+  .product-title-sm { font-size: 2.25rem; }
+  .product-text     { font-size: 1.35rem; }
+  .product-full     { min-height: 38rem; }
+  .product-half     { min-height: 33rem; }
+}
